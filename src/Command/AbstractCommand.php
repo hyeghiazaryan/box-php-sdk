@@ -46,4 +46,10 @@ abstract class AbstractCommand implements Contract\CommandInterface
         $this->request->setUrl($client->getBaseUrl() . $this->request->getUrl());
         $this->request->addHeaders($client->getDefaultOption('headers'));
     }
+    
+    public function addSharedLinkHeader($sharedLink)
+    {
+        $this->request->addHeader('BoxApi', "shared_link={$sharedLink}");
+    }
+
 }
